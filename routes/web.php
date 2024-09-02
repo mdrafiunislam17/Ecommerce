@@ -24,7 +24,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 //admin routes
 
 
-Route::prefix('admin')->middleware('role:admin')->group(function () {
+Route::prefix('admin')->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/settings', 'setting')->name('admin.settings');
         Route::get('/manage/users', 'manage_user')->name('admin.manage.user');
